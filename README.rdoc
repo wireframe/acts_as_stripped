@@ -1,0 +1,7 @@
+= acts_as_stripped
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2009 Ryan Sonnek. See LICENSE for details.
