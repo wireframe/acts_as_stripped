@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "acts_as_stripped"
-    gem.summary = %Q{TODO}
-    gem.email = "ryan@socialcast.com"
+    gem.summary = %Q{strip whitespace from string attributes}
+    gem.email = "ryan.sonnek@gmail.com"
     gem.homepage = "http://github.com/wireframe/acts_as_stripped"
     gem.authors = ["Ryan Sonnek"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
