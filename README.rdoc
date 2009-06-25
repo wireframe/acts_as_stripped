@@ -8,15 +8,15 @@ sudo gem install wireframe-acts_as_stripped
 
 = Usage
 
-# strip whitespace from *all* string attributes
-class User < ActiveRecord::Base
-  acts_as_stripped
-end
+  # strip whitespace from *all* string attributes
+  class User < ActiveRecord::Base
+    acts_as_stripped
+  end
 
-# strip whitespace from *select* string attributes
-class Post < ActiveRecord::Base
-  acts_as_stripped :title, :summary
-end
+  # strip whitespace from *select* string attributes
+  class Post < ActiveRecord::Base
+    acts_as_stripped :title, :summary
+  end
 
 == Copyright
 
