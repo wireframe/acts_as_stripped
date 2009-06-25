@@ -4,7 +4,10 @@ module ActsAsStripped
   end
 
   module ClassMethods
-    def acts_as_stripped
+    def acts_as_stripped(*attrs)
+      class_inheritable_accessor :acts_as_stripped_attributes
+      self.acts_as_stripped_attributes = attrs if attrs.any?
+
       before_validation :strip_fields
 
       include ActsAsStripped::InstanceMethods
@@ -18,7 +21,12 @@ module ActsAsStripped
   module InstanceMethods
     private
     def strip_fields
-      self.attributes.each_key {|a| self[a].strip! if self[a].respond_to? :strip! }
+      strippable_attributes.each do |attr|
+        self[attr.to_s].strip!
+      end
+    end
+    def strippable_attributes
+      self.acts_as_stripped_attributes || self.attributes.keys.select {|attr| self[attr].respond_to?(:strip!) }
     end
   end
 end
