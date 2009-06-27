@@ -4,7 +4,13 @@ Simple utility to strip whitespace from string attributes.
 
 = Installation
 
-sudo gem install wireframe-acts_as_stripped
+Command line installation
+
+  sudo gem install wireframe-acts_as_stripped
+
+Rails environment.rb configuration
+
+  config.gem 'wireframe-acts_as_stripped', :source => 'http://gems.github.com', :lib => 'acts_as_stripped'
 
 = Usage
 
