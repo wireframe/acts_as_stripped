@@ -34,6 +34,19 @@ class ActsAsStrippedTest < Test::Unit::TestCase
       assert_equal 'ryan', @user.first_name
       assert_equal 'sonnek', @user.last_name
     end
+    
+    should "not fail if any attributes are nil" do
+      @user.first_name = '  shaq  '
+      @user.last_name = nil
+      @user.logged_in_at = Time.now
+      
+      assert_nothing_raised do
+        @user.save!
+      end
+      
+      assert_equal 'shaq', @user.first_name
+      assert_nil @user.last_name
+    end
   end
 
   context 'a basic post instance' do
