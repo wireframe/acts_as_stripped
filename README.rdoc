@@ -4,22 +4,12 @@ Simple utility to strip whitespace from string attributes.
 
 = Installation
 
-Command line installation
-
-  sudo gem install wireframe-acts_as_stripped
-
-Rails environment.rb configuration
-
-  config.gem 'wireframe-acts_as_stripped', :source => 'http://gems.github.com', :lib => 'acts_as_stripped'
+Bundler configuration
+  gem 'acts_as_stripped'
 
 = Usage
 
-  # strip whitespace from *all* string attributes
-  class User < ActiveRecord::Base
-    acts_as_stripped
-  end
-
-  # strip whitespace from *select* string attributes
+  # strip whitespace from specified string attributes
   class Post < ActiveRecord::Base
     acts_as_stripped :title, :summary
   end

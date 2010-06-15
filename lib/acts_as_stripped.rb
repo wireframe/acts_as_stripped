@@ -21,12 +21,9 @@ module ActsAsStripped
   module InstanceMethods
     private
     def strip_fields
-      strippable_attributes.each do |attr|
+      self.acts_as_stripped_attributes.each do |attr|
         self[attr.to_s].strip! unless self[attr.to_s].nil?
       end
-    end
-    def strippable_attributes
-      self.acts_as_stripped_attributes || self.attributes.keys.select {|attr| self[attr].respond_to?(:strip!) }
     end
   end
 end
