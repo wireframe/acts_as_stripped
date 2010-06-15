@@ -5,3 +5,4 @@ rdoc
 pkg
 *.sqlite3
 *.log
+test/*.log
