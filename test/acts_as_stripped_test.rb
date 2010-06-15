@@ -53,6 +53,14 @@ class ActsAsStrippedTest < Test::Unit::TestCase
     setup do
       @post = Post.new
     end
+    should 'not fail if title is nil' do
+      @post.title = nil
+      assert_nothing_raised do
+        @post.save!
+      end
+      assert_nil @post.title
+    end
+
     should 'strip whitespace only from title' do
       @post.title = '  hello world  '
       @post.body = '  awesome  '
