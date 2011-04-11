@@ -11,13 +11,9 @@ module ActsAsStripped
       before_validation :strip_fields
 
       include ActsAsStripped::InstanceMethods
-      extend ActsAsStripped::SingletonMethods          
     end
   end
 
-  module SingletonMethods
-  end
-  
   module InstanceMethods
     private
     def strip_fields
