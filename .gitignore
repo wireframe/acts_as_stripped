@@ -2,7 +2,17 @@
 .DS_Store
 coverage
 rdoc
+
+# gem files
 pkg
+pkg/*
+*.gem
+
+# test dependencies
 *.sqlite3
 *.log
 test/*.log
+
+# bundler files
+.bundle
+Gemfile.lock
