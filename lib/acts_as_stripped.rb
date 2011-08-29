@@ -1,3 +1,5 @@
+require 'active_record'
+
 module ActsAsStripped
   module ClassMethods
     def acts_as_stripped(*attrs)

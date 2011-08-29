@@ -11,6 +11,10 @@ Gem::Specification.new do |s|
   s.summary = %q{strip whitespace from string attributes}
   s.description = %q{ ActiveRecord Extension to strip whitespace from attributes before saving values }
 
+  s.add_runtime_dependency 'activerecord', ['>= 2.0']
+  s.add_development_dependency %q<rspec>, ['>= 2.5.0']
+  s.add_development_dependency(%q<sqlite3-ruby>, ["~> 1.3.2"])
+
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
