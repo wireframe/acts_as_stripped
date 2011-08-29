@@ -1,23 +1,15 @@
 module ActsAsStripped
-  def self.included(base)
-    base.extend(ClassMethods)
-  end
-
   module ClassMethods
     def acts_as_stripped(*attrs)
-      class_inheritable_accessor :acts_as_stripped_attributes
-      self.acts_as_stripped_attributes = attrs if attrs.any?
+      class_attribute :acts_as_stripped_attributes
+      self.acts_as_stripped_attributes = attrs
 
       before_validation :strip_fields
 
       include ActsAsStripped::InstanceMethods
-      extend ActsAsStripped::SingletonMethods          
     end
   end
 
-  module SingletonMethods
-  end
-  
   module InstanceMethods
     private
     def strip_fields
@@ -28,6 +20,4 @@ module ActsAsStripped
   end
 end
 
-if Object.const_defined?("ActiveRecord")
-  ActiveRecord::Base.send(:include, ActsAsStripped)
-end
+ActiveRecord::Base.extend(ActsAsStripped::ClassMethods)
