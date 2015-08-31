@@ -15,6 +15,12 @@ describe ActsAsStripped do
 
       @post.title.should == 'hello world'
     end
+    it 'strips newlines from title' do
+      @post.title = "hello world\n\n"
+      @post.save!
+
+      @post.title.should == 'hello world'
+    end
     it 'does not strip whitespace from body' do
       @post.body = '  awesome  '
       @post.save!

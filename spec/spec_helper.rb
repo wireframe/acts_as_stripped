@@ -30,12 +30,12 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     puts 'setting up database'
-    config = YAML::load(IO.read(File.dirname(__FILE__) + '/database.yml'))
+    config = YAML.load(IO.read(File.dirname(__FILE__) + '/database.yml'))
     ActiveRecord::Base.logger = Logger.new STDOUT
     ActiveRecord::Base.establish_connection(config[ENV['DB'] || 'sqlite'])
 
-    ActiveRecord::Schema.define(:version => 1) do
-      create_table :posts, :force => true do |t|
+    ActiveRecord::Schema.define(version: 1) do
+      create_table :posts, force: true do |t|
         t.column :title, :string
         t.column :body, :string
       end
